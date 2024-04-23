@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Shop List</title>
+</head>
+<body>
+    <h2>Shop List</h2>
+    <ul>
+        {% for shop in shops %}
+            <li>{{ shop.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add-shop' %}">Add Shop</a> <!-- Link to add shop page -->
+</body>
+</html>

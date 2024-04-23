@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Design by foolishdeveloper.com -->
+    <title>Signup Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            max-width: 90%;
+        }
+
+        .header {
+            background-color: #f54c4c;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .form-container {
+            padding: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #f54c4c;
+        }
+
+        .form-group .radio-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group .radio-group label {
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        .form-group .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .form-group .btn {
+            background-color: #f54c4c;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form-group .btn:hover {
+            background-color: #e04343;
+        }
+
+        .form-group .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .form-group .login-link a {
+            color: #f54c4c;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .form-group .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* Style for csrf_token */
+        .form-group input[type="hidden"][name="csrfmiddlewaretoken"] {
+            color: #ffffff; /* Change the color to white */
+            background-color: transparent; /* Make the background transparent */
+            border: none; /* Remove the border */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">Signup Here</div>
+    <div class="form-container">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password" id="password1" name="password1" placeholder="Enter your password">
+            </div>
+            <div class="form-group">
+                <label for="password2">Confirm Password</label>
+                <input type="password" id="password2" name="password2" placeholder="Confirm your password">
+            </div>
+            <div class="form-group">
+                <label>Choose Role:</label>
+                <div class="radio-group">
+                    <input type="radio" id="buyer" name="role" value="buyer">
+                    <label for="buyer">Buyer</label>
+                    <input type="radio" id="seller" name="role" value="seller">
+                    <label for="seller">Seller</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn">Signup</button>
+            </div>
+            <div class="form-group login-link">
+                <span>Already have an account? </span><a href="{% url 'login' %}">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

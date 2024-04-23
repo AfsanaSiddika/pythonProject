@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> BazaarSadai </title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'add-shop' %}">Add Shop</a></li> <!-- Link to add shop page -->
+            <li><a href="{% url 'shop-list' %}">Shop List</a></li> <!-- Link to shop list page -->
+        </ul>
+    </nav>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
